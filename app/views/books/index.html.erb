@@ -13,7 +13,20 @@
 </div>
 <!---->
 
-<div id="books"><%= render 'books' %></div>
+<div id="books"></div>
+
+<script>
+  $(function () {
+    var last_keyword = "";
+    if (last_keyword != keyword && keyword.length > 0) {
+      $("#books").html("<%= escape_javascript(render("books")) %>");
+//      $(this).parentsUntil("div.search_form").parent().find("div.result").show(700);
+//    } else {
+//      $(this).parentsUntil("div.search_form").parent().find("div.result").hide(700);
+    }
+  });
+</script>
+
 
 <br>
 <%= link_to 'New Book', new_book_path %>
